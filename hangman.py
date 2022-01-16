@@ -21,7 +21,7 @@ def main_Hangman():
     win_condition = secretWord_letters.copy()
 
     while lives > 0 and len(win_condition) > 0:
-        print()
+        print("\n")
         #"mechanizm" wypisywania podkreśleń/liter w haśle
         for secretWord_letters in secretWord:
             if secretWord_letters in used_letters:
@@ -77,5 +77,3 @@ def main_Hangman():
             time.sleep(1)
             print("You lost! The secret word was", secretWord)
             break
-
-main_Hangman()

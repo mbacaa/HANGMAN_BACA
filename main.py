@@ -1,21 +1,27 @@
 from solver import wordValidation_Solver, main_Solver
 from hangman import wordValidation_Hangman, main_Hangman
 from words import words
-from drawings import drawings
 import random
 import string
+from drawings import drawings
 import time
 
-menu = input("""
-Type '1' for Player VS Bot \n
-Type '2' for Bot vs Player
-""")
+menu = 0
 
-if menu == '1':
-    wordValidation_Hangman(words)
-    main_Hangman()
-elif menu == '2':
-    wordValidation_Solver()
-    main_Solver()
-else:
-    print("Wrong input!")
+while menu != 3:
+    menu = input("""
+        Type 'P' for Player VS Bot
+        Type 'B' for Bot vs Player
+        Type 'Q' to Quit
+        """).upper()
+    if menu == 'P':
+        wordValidation_Hangman(words)
+        main_Hangman()
+        print(menu)
+    elif menu == 'B':
+        wordValidation_Solver()
+        main_Solver()
+    elif menu == 'Q':
+        break
+    else:
+        print("Wrong input!")

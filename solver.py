@@ -67,5 +67,3 @@ def main_Solver():
         elif lives == 0:
             time.sleep(2)
             print("You lost!")
-
-main_Solver()
