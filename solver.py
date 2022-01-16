@@ -4,15 +4,15 @@ from drawings import drawings
 import time
 
 #wpisanie hasła, zamiana na wielkie litery, sprawdzenie czy zawiera poprawne znaki (tylko litery)
-def wordValidation():
+def wordValidation_Solver():
     word = input('Give me a word: ')    
     while word.isalpha() is False:
         word = input('Give me a CORRECT word: ') 
     secretWord = word.upper()
     return secretWord
 
-def main():
-    secretWord = wordValidation()
+def main_Solver():
+    secretWord = wordValidation_Solver()
     secretWord_letters = set(secretWord)
     alphabet_upper = set(string.ascii_uppercase)
     used_letters = set()
@@ -31,7 +31,8 @@ def main():
         print('\n')
         if len(used_letters) != 0:
             print("Used letters:", used_letters)
-            time.sleep(2.5)
+            time.sleep(2)
+            print("\n")
         
         letter = random.choice(string.ascii_uppercase)
         while letter in used_letters:
@@ -40,7 +41,8 @@ def main():
         
         bot_input = used_letters.add(letter)
         print("Bot guess: ", letter)
-        time.sleep(2.5)
+        time.sleep(2)
+        print("\n")
 
         if len(win_condition) != 0 and lives != 0:              
             if letter in alphabet_upper:
@@ -57,11 +59,13 @@ def main():
         #warunki zakończenia gry: 
         #wygrana gdy zostanie wpisane całe hasło lub zostaną odgadnięte wszystkie litery
         if len(win_condition) == 0 or letter == secretWord:
+            time.sleep(2)
             print("You guessed the secret word! Congratulations!")
+            time.sleep(1)
             print(drawings['win'])
         #przegrana gdy skończą się nam życia
         elif lives == 0:
+            time.sleep(2)
             print("You lost!")
-            print(drawings[lives])
 
-main()
+main_Solver()
